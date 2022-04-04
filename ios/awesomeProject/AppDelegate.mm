@@ -25,6 +25,12 @@
 @end
 #endif
 
+#import <AppCenterReactNativeShared/AppCenterReactNativeShared.h>
+#import <AppCenterReactNative.h>
+#import <AppCenterReactNativeCrashes.h>
+#import <AppCenterReactNativeAnalytics.h>
+
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -54,6 +60,11 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  [AppCenterReactNative register]
+  [AppCenterReactNativeCrashes registerWithAutomaticProcessing]
+  [AppCenterReactNativeAnalytics registerWithInitiallyEnabled:true]
+  
   return YES;
 }
 
